@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffe7ef">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Sono qui">
+    <link rel="stylesheet" href="style.css">
+    <title>Sono qui ❤️</title>
+</head>
+
+<body>
+
+    <main id="home" class="screen active">
+        <div class="container">
+
+            <div class="heart">❤️</div>
+
+            <h1>Sono qui ❤️</h1>
+
+<p class="subtitle">
+    Ehi amore, sono qui con te.<br>
+    Non devi affrontare tutto da sola.
+</p>
+            <div class="buttons">
+
+                <button onclick="respira()">
+                    <span>🌬️</span>
+                    <strong>Respira con me</strong>
+                    <small>Prendiamoci un momento</small>
+                </button>
+
+                <button onclick="messaggio()">
+                    <span>💌</span>
+                    <strong>Un messaggio per te</strong>
+                    <small>Qualcosa che voglio dirti</small>
+                </button>
+
+                <button onclick="contatto()">
+                    <span>🫂</span>
+                    <strong>Ho bisogno di te</strong>
+                    <small>Non sei sola</small>
+                </button>
+
+                <button onclick="aiutami()">
+                    <span>🌙</span>
+                    <strong>Aiutami adesso</strong>
+                    <small>Facciamo un passo alla volta</small>
+                </button>
+		
+		<button onclick="soloPerTe()">
+   		 <span>💗</span>
+   		 <strong>Solo per te</strong>
+   		 <small>Una cosa che voglio ricordarti</small>
+</button>
+
+            </div>
+        </div>
+    </main>
+
+
+    <main id="breathing" class="screen">
+
+        <div class="breathing-content">
+
+            <button class="back-button" onclick="tornaHome()">
+                ← Indietro
+            </button>
+
+            <div class="breathing-text">
+                <p class="little-title">Respiriamo insieme</p>
+
+                <h2 id="breathingInstruction">
+                    Preparati
+                </h2>
+
+                <p id="breathingTimer">
+                    Quando sei pronta
+                </p>
+            </div>
+
+            <div class="breathing-circle" id="breathingCircle">
+                <span>❤️</span>
+            </div>
+
+            <p class="breathing-message">
+                Non devi fare niente di perfetto.<br>
+                Segui semplicemente il ritmo.
+            </p>
+
+            <button class="start-button"
+                    id="startBreathingButton"
+                    onclick="iniziaRespirazione()">
+                Inizia
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <main id="message" class="screen">
+
+        <div class="message-content">
+
+            <button class="back-button" onclick="tornaHome()">
+                ← Indietro
+            </button>
+
+            <div class="message-card">
+
+                <div class="message-heart">
+                    💌
+                </div>
+
+                <p class="little-title">
+                    Un messaggio per te
+                </p>
+
+                <p id="personalMessage" class="personal-message">
+                    Sono qui con te.
+                </p>
+
+                <button class="message-button" onclick="nuovoMessaggio()">
+                    ❤️ Un altro messaggio
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+<main id="contact" class="screen">
+
+    <div class="contact-content">
+
+        <button class="back-button" onclick="tornaHome()">
+            ← Indietro
+        </button>
+
+        <div class="contact-card">
+
+            <div class="contact-heart">
+                🫂
+            </div>
+
+            <p class="little-title">
+                Ho bisogno di te
+            </p>
+
+            <h2>
+                Sono qui per te
+            </h2>
+
+            <p class="contact-text">
+                Non devi trovare le parole giuste.<br>
+                Se hai bisogno di me, ci sono.
+            </p>
+
+            <div class="contact-buttons">
+
+                <button class="contact-button" onclick="chiama()">
+                    <span>📞</span>
+                    <strong>Chiamami</strong>
+                    <small>Ho bisogno di sentire la tua voce</small>
+                </button>
+
+                <button class="contact-button" onclick="scrivimi()">
+                    <span>💬</span>
+                    <strong>Scrivimi su WhatsApp</strong>
+                    <small>Non riesco a parlare, ma vorrei sentirti vicino</small>
+                </button>
+
+                <button class="contact-button" onclick="rimaniConMe()">
+                    <span>🫂</span>
+                    <strong>Rimani qui con me</strong>
+                    <small>Ho solo bisogno di un momento</small>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+<main id="help" class="screen">
+
+    <div class="help-content">
+
+        <button class="back-button" onclick="tornaHome()">
+            ← Indietro
+        </button>
+
+        <div class="help-card">
+
+            <div class="help-icon" id="helpIcon">
+                🌙
+            </div>
+
+            <p class="little-title" id="helpStep">
+                Fermiamoci un attimo
+            </p>
+
+            <h2 id="helpTitle">
+                Non devi risolvere tutto adesso.
+            </h2>
+
+            <p class="help-text" id="helpText">
+                Facciamo una cosa alla volta.<br>
+                Io sono qui con te. ❤️
+            </p>
+
+            <div class="help-progress">
+                <span id="progress1" class="progress-dot active"></span>
+                <span id="progress2" class="progress-dot"></span>
+                <span id="progress3" class="progress-dot"></span>
+                <span id="progress4" class="progress-dot"></span>
+            </div>
+
+            <button
+                class="help-button"
+                id="helpButton"
+                onclick="prossimoPasso()">
+                Iniziamo
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+<main id="personal" class="screen">
+
+    <div class="personal-content">
+
+        <button class="back-button" onclick="tornaHome()">
+            ← Indietro
+        </button>
+
+        <div class="personal-card">
+
+    <img
+        src="foto.jpg"
+        alt="Una nostra foto speciale"
+        class="personal-photo">
+
+    <div class="personal-heart">
+        💗
+    </div>
+            <p class="little-title">
+                Solo per te
+            </p>
+
+            <h2>
+                Voglio che tu sappia una cosa.
+            </h2>
+
+            <div class="personal-letter">
+
+    <p>
+        Ciao amore,
+    </p>
+
+    <p>
+        mi sono impegnato molto per fare tutto ciò per te e spero
+        che già con gli altri aiuti tu sia riuscita a tranquillizzarti.
+    </p>
+
+    <p>
+        Io sono qua con te, anche se non siamo fisicamente insieme,
+        e so per certo che questa piccola letterina ti aiuterà a
+        passare questo momento di difficoltà che stai passando.
+    </p>
+
+    <p>
+        Voglio ricordarti quanto sei una ragazza magnifica,
+        per cui darei la mia intera vita, e che vali veramente
+        un mondo intero.
+    </p>
+
+    <p>
+        Ora voglio che ti fermi 2 secondi e pensi a quanto sei
+        cambiata da quando ci conosciamo, quante esperienze abbiamo
+        fatto insieme e tutto ciò che abbiamo vissuto, soffermandoti
+        anche sui piccoli dettagli e sulle piccole cose che ti hanno
+        resa felice durante quei giorni.
+    </p>
+
+    <p>
+        Perché per me vederti e pensarti felice è la mia più grande gioia.
+    </p>
+
+    <p class="letter-ending">
+        Ti amo da morire amore. ❤️
+    </p>
+
+</div>
+
+<div class="personal-signature">
+    Il tuo bimbo 🫂
+</div>
+            
+        </div>
+
+    </div>
+
+</main>
+    <script src="script.js"></script>
+
+</body>
+</html>

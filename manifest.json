@@ -1,0 +1,9 @@
+{
+    "name": "Sono qui ❤️",
+    "short_name": "Sono qui",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffe7ef",
+    "theme_color": "#ffe7ef",
+    "orientation": "portrait"
+}

@@ -1,0 +1,901 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --text: #382832;
+    --soft-text: #765f6b;
+    --white: rgba(255, 255, 255, 0.88);
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: linear-gradient(160deg, #ffe7ef 0%, #f6def4 100%);
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+#home {
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 430px;
+    text-align: center;
+    animation: homeAppear 0.5s ease;
+}
+
+
+    @keyframes homeAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.heart {
+    font-size: 48px;
+    margin-bottom: 8px;
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+h1 {
+    font-size: clamp(40px, 12vw, 54px);
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: -1.5px;
+}
+
+.subtitle {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--soft-text);
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.buttons button {
+    width: 100%;
+    min-height: 76px;
+    border: 0;
+    border-radius: 22px;
+    background: var(--white);
+    color: var(--text);
+    padding: 14px 18px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+
+    box-shadow:
+        0 8px 25px rgba(80, 45, 65, 0.09);
+
+    cursor: pointer;
+
+    opacity: 0;
+    animation: homeButtonAppear 0.45s ease forwards;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.buttons button:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.buttons button:nth-child(2) {
+    animation-delay: 0.10s;
+}
+
+.buttons button:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.buttons button:nth-child(4) {
+    animation-delay: 0.20s;
+}
+
+.buttons button:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+@keyframes homeButtonAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.buttons button span {
+    grid-row: 1 / 3;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons button strong {
+    font-size: 16px;
+    align-self: end;
+}
+
+.buttons button small {
+    font-size: 13px;
+    color: var(--soft-text);
+    margin-top: 3px;
+}
+
+.buttons button:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(80, 45, 65, 0.08);
+}
+
+/* =========================
+   RESPIRAZIONE
+========================= */
+
+#breathing {
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20px;
+}
+
+.breathing-content {
+    width: 100%;
+    max-width: 430px;
+    min-height: 90vh;
+    min-height: 90svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.breathing-text {
+    margin-bottom: 32px;
+}
+
+.breathing-text .little-title {
+    margin-bottom: 9px;
+}
+
+.breathing-text h2 {
+    font-size: 36px;
+    line-height: 1.1;
+    margin-bottom: 9px;
+    transition: opacity 0.25s ease;
+}
+
+#breathingTimer {
+    color: var(--soft-text);
+    font-size: 16px;
+    transition: opacity 0.25s ease;
+}
+
+
+/* CERCHIO */
+
+.breathing-circle {
+    width: min(68vw, 270px);
+    height: min(68vw, 270px);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.72) 70%,
+            rgba(255, 255, 255, 0.45) 100%
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 0 0 14px rgba(255, 255, 255, 0.18),
+        0 0 45px rgba(255, 255, 255, 0.40),
+        0 18px 45px rgba(90, 50, 80, 0.13);
+
+    transform: scale(0.78);
+
+    transition:
+        transform 4s ease-in-out,
+        box-shadow 4s ease-in-out;
+}
+
+
+/* CUORE */
+
+.breathing-circle span {
+    font-size: 42px;
+    transition: transform 4s ease-in-out;
+}
+
+
+/* INSPIRA */
+
+.breathing-circle.inhale {
+    transform: scale(1);
+
+    box-shadow:
+        0 0 0 22px rgba(255, 255, 255, 0.16),
+        0 0 65px rgba(255, 255, 255, 0.55),
+        0 20px 50px rgba(90, 50, 80, 0.13);
+}
+
+.breathing-circle.inhale span {
+    transform: scale(1.12);
+}
+
+
+/* ESPIRA */
+
+.breathing-circle.exhale {
+    transform: scale(0.78);
+
+    box-shadow:
+        0 0 0 10px rgba(255, 255, 255, 0.13),
+        0 0 30px rgba(255, 255, 255, 0.30),
+        0 15px 40px rgba(90, 50, 80, 0.10);
+}
+
+.breathing-circle.exhale span {
+    transform: scale(0.92);
+}
+
+
+/* MESSAGGIO */
+
+.breathing-message {
+    color: var(--soft-text);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 32px;
+}
+
+
+/* PULSANTE */
+
+.start-button {
+    border: 0;
+    background: white;
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 700;
+    padding: 16px 44px;
+    border-radius: 18px;
+    margin-top: 22px;
+    box-shadow: 0 8px 25px rgba(80, 45, 65, 0.10);
+    cursor: pointer;
+}
+
+.start-button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================
+   SCHERMI PICCOLI
+========================= */
+
+@media (max-height: 700px) {
+
+    #home {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .heart {
+        font-size: 38px;
+    }
+
+    .subtitle {
+        margin-bottom: 18px;
+    }
+
+    .buttons {
+        gap: 9px;
+    }
+
+    .buttons button {
+        min-height: 66px;
+        padding: 10px 15px;
+    }
+
+    .breathing-text {
+        margin-bottom: 20px;
+    }
+
+    .breathing-circle {
+        width: 210px;
+        height: 210px;
+    }
+
+    .breathing-message {
+        margin-top: 20px;
+    }
+}
+/* =========================
+   MESSAGGI
+========================= */
+
+#message {
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20px;
+}
+
+.message-content {
+    width: 100%;
+    max-width: 430px;
+    min-height: 90vh;
+    min-height: 90svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.message-card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: 28px;
+    padding: 38px 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(80, 45, 65, 0.10);
+}
+
+.message-heart {
+    font-size: 52px;
+    margin-bottom: 18px;
+}
+
+.personal-message {
+    font-size: 21px;
+    line-height: 1.55;
+    margin: 25px 0 30px;
+    transition: opacity 0.2s ease;
+}
+
+.message-button {
+    border: 0;
+    background: white;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 20px;
+    border-radius: 17px;
+    box-shadow: 0 6px 18px rgba(80, 45, 65, 0.08);
+    cursor: pointer;
+}
+
+.message-button:active {
+    transform: scale(0.96);
+}
+/* =========================
+   CONTATTI
+========================= */
+
+#contact {
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20px;
+}
+
+.contact-content {
+    width: 100%;
+    max-width: 430px;
+    min-height: 90vh;
+    min-height: 90svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.contact-card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.80);
+    border-radius: 28px;
+    padding: 38px 24px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(80, 45, 65, 0.10);
+}
+
+.contact-heart {
+    font-size: 54px;
+    margin-bottom: 15px;
+}
+
+.contact-card h2 {
+    font-size: 30px;
+    margin-bottom: 14px;
+}
+
+.contact-text {
+    color: var(--soft-text);
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 28px;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-button {
+    width: 100%;
+    min-height: 76px;
+    border: 0;
+    border-radius: 20px;
+    background: white;
+    color: var(--text);
+    padding: 13px 16px;
+    text-align: left;
+
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto;
+
+    column-gap: 10px;
+
+    box-shadow: 0 7px 20px rgba(80, 45, 65, 0.08);
+
+    cursor: pointer;
+
+    transition: transform 0.15s ease;
+}
+
+.contact-button span {
+    grid-row: 1 / 3;
+    font-size: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-button strong {
+    font-size: 16px;
+    align-self: end;
+}
+
+.contact-button small {
+    color: var(--soft-text);
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+.contact-button:active {
+    transform: scale(0.97);
+}
+/* =========================
+   AIUTAMI ADESSO
+========================= */
+
+#help {
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20px;
+}
+
+.help-content {
+    width: 100%;
+    max-width: 430px;
+    min-height: 90vh;
+    min-height: 90svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.help-card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 30px;
+    padding: 38px 24px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(80, 45, 65, 0.10);
+}
+
+.help-icon {
+    font-size: 58px;
+    margin-bottom: 18px;
+    animation: helpFloat 3s ease-in-out infinite;
+}
+
+@keyframes helpFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+.help-card h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.help-text {
+    color: var(--soft-text);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 78px;
+}
+
+.help-text strong {
+    color: var(--text);
+}
+
+.help-progress {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 28px 0 25px;
+}
+
+.progress-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(118, 95, 107, 0.20);
+    transition: all 0.25s ease;
+}
+
+.progress-dot.active {
+    width: 25px;
+    border-radius: 10px;
+    background: #765f6b;
+}
+
+.help-button {
+    width: 100%;
+    border: 0;
+    background: white;
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 700;
+    padding: 16px 20px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(80, 45, 65, 0.10);
+    cursor: pointer;
+}
+
+.help-button:active {
+    transform: scale(0.97);
+}
+/* =========================
+   ANIMAZIONI APP
+========================= */
+
+.screen.active {
+    animation: screenAppear 0.35s ease;
+}
+
+@keyframes screenAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   ANIMAZIONE CARD
+========================= */
+
+.message-card,
+.contact-card,
+.help-card {
+    animation: cardAppear 0.45s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================
+   PULSANTI
+========================= */
+
+.buttons button,
+.contact-button,
+.message-button,
+.help-button,
+.start-button {
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.buttons button:hover,
+.contact-button:hover,
+.message-button:hover,
+.help-button:hover,
+.start-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(80, 45, 65, 0.13);
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button {
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+.back-button:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================
+   TESTO MESSAGGI
+========================= */
+
+.personal-message {
+    animation: messageAppear 0.3s ease;
+}
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   PROGRESS DOTS
+========================= */
+
+.progress-dot {
+    transition:
+        width 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.progress-dot.active {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   RIDUZIONE ANIMAZIONI
+   (accessibilità)
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+/* =========================
+   SOLO PER TE
+========================= */
+
+#personal {
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20px;
+}
+
+.personal-content {
+    width: 100%;
+    max-width: 430px;
+    min-height: 90vh;
+    min-height: 90svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.personal-card {
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.84);
+    border-radius: 30px;
+    padding: 22px 22px 30px;
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(80, 45, 65, 0.13);
+    animation: personalAppear 0.55s ease;
+}
+
+@keyframes personalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* FOTO */
+
+.personal-photo {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+    margin-bottom: 22px;
+    box-shadow: 0 12px 30px rgba(80, 45, 65, 0.15);
+}
+
+
+/* CUORE */
+
+.personal-heart {
+    font-size: 52px;
+    margin-bottom: 12px;
+    animation: personalHeart 2.8s ease-in-out infinite;
+}
+
+@keyframes personalHeart {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+/* TITOLO */
+
+.personal-card .little-title {
+    margin-bottom: 8px;
+}
+
+.personal-card h2 {
+    font-size: 28px;
+    line-height: 1.25;
+    margin-bottom: 25px;
+}
+
+
+/* LETTERA */
+
+.personal-letter {
+    color: var(--soft-text);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.personal-letter p {
+    margin-bottom: 18px;
+}
+
+
+/* FRASE FINALE */
+
+.personal-letter .letter-ending {
+    color: var(--text);
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+
+/* FIRMA */
+
+.personal-signature {
+    font-size: 14px;
+    color: var(--soft-text);
+    margin-top: 8px;
+}
